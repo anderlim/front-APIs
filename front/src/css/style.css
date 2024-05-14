@@ -145,14 +145,14 @@ body {
     display: grid;
 }
 
-.inputs{
+/* .inputs{
     display: flex;
     gap: 20px;
 }
 
 .inputs .custom-file-upload{
     width: 200px;
-}
+} */
 
 .center {
     margin-top: 10dvh;

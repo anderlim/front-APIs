@@ -91,7 +91,7 @@ const formVerificar = document.getElementById("form-verificar");
 formVerificar.addEventListener("submit", function(event) {
     event.preventDefault(); // Previne o envio padrão do formulário
 
-    const assinatura = document.getElementById("file-input-ass");
+    // const assinatura = document.getElementById("file-input-ass");
     const arquivo = document.getElementById("file-input-file");
 
     if (validaCamposVerificador(assinatura, arquivo)) sendVerificador(assinatura.files[0], arquivo.files[0])
