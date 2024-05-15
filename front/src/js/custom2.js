@@ -8,10 +8,10 @@ document.getElementById('file-input-file').addEventListener('change', function(e
 });
 
 // Função para tratar o evento de mudança e capturar o arquivo selecionado
-document.getElementById('file-input-ass').addEventListener('change', function(event) {
-  var files = event.target.files;
-  handleFiles(files, 'assinatura');
-});
+// document.getElementById('file-input-ass').addEventListener('change', function(event) {
+//   var files = event.target.files;
+//   handleFiles(files, 'assinatura');
+// });
 
 // Evento ao arrastar o arquivo sobre a área de soltura
 dropFile.addEventListener('dragover', (event) => {
@@ -54,7 +54,7 @@ dropAss.addEventListener('drop', (event) => {
     dropAss.classList.remove('dragover');
     const files = event.dataTransfer.files;
 
-    document.getElementById('file-input-ass').files = files;
+    // document.getElementById('file-input-ass').files = files;
 
     handleFiles(files, 'assinatura');
 });
@@ -88,8 +88,26 @@ const formVerificar = document.getElementById("form-verificar");
 formVerificar.addEventListener("submit", function(event) {
     event.preventDefault(); // Previne o envio padrão do formulário
 
-    const assinatura = document.getElementById("file-input-ass");
+    // const assinatura = document.getElementById("file-input-ass");
     const arquivo = document.getElementById("file-input-file");
 
     if (validaCamposVerificador(assinatura, arquivo)) sendVerificador(assinatura.files[0], arquivo.files[0])
 })
+
+function handleDrop(event, inputId) {
+  event.preventDefault();
+  const dropArea = document.getElementById(inputId.replace('input', 'drop'));
+  dropArea.classList.remove('dragover');
+  const files = event.dataTransfer.files;
+  
+  const dataTransfer = new DataTransfer();
+  for (let i = 0; i < files.length; i++) {
+      dataTransfer.items.add(files[i]);
+  }
+
+  document.getElementById(inputId).files = dataTransfer.files;
+  handleFiles(dataTransfer.files, inputId === 'file-input-file' ? 'arquivo' : 'assinatura');
+}
+
+dropFile.addEventListener('drop', (event) => handleDrop(event, 'file-input-file'));
+// dropAss.addEventListener('drop', (event) => handleDrop(event, 'file-input-ass'));
