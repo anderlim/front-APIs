@@ -2,6 +2,8 @@
 
 ## Para desenvolvedores
 
+Esté o front-end da verificação de assinaturas aonde ele chama as APIs verificação e assinatura
+
 Para executar o projeto é necessário apenas clonar este repositório, na pasta `Front` temos a pasta `node_modules`, nela estão todas as dependencias para executar o projeto.
 
 Para testar as requisições temos o arquivo `api.js` que é uma API de teste com dados mockados para satisfazer as requisições do Front.
