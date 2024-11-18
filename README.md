@@ -1,4 +1,4 @@
-# Manteiguinha
+# front-APIs
 
 ## Para desenvolvedores
 
